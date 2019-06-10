@@ -1,0 +1,15 @@
+.nav .nav-item.dropdown .navbar-dropdown, .navbar-nav .nav-item.dropdown .navbar-dropdown {
+    top:43px;
+}
+
+.select-btn {
+    margin-top: -8px;
+}
+
+.income {
+    color:green;
+}
+
+.expend {
+    color:red;
+}
