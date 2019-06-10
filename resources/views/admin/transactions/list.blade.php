@@ -8,7 +8,7 @@
             <th>Name</th>
             <th>Amount</th>
             <th>Currency</th>
-            
+            <th>Date</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -25,6 +25,7 @@
                   {{number_format($transaction->amount,2)}}
                 </span></td>
                  <td>{{$transaction->currency}}</td>
+                 <td>{{$transaction->date}}</td>
                  <td><a href="{{route('transactions.edit',['id'=>$transaction->id])}}" class="btn btn-info"><i class="mdi mdi-pencil"></i> </a> &nbsp; 
                   <form action="{{route('transactions.destroy',['id'=>$transaction->id])}}" method="POST">
                     @csrf
