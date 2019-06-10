@@ -210,8 +210,8 @@ class CustomerController extends Controller
     }
 
     public function search(Request $request) {
-        if($request->q != "" && strlen($request->q) > 3) {
-            $results = Customer::select('id','name as text')->where("name","like",$request->q . "%")->limit(10)->get();
+        if($request->q != "" && strlen($request->q) >= 3) {
+            $results = Customer::select('id','name as text')->where("name","like","%".$request->q . "%")->limit(5)->get();
             return response()->json($results->toArray());
         }
         else {
