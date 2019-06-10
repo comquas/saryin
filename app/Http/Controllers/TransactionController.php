@@ -32,7 +32,29 @@ class TransactionController extends Controller
         if($pageno == null) {
             $pageno = 1;
         }
-        $transactions = Transaction::orderBy('name')->paginate(50);
+        $orderBy = $request->orderBy;
+        $orderType = $request->orderType;
+
+        if($orderBy == null) {
+            $orderBy = "date";
+            $orderType = "desc";
+        }
+        else if($orderBy == 1) {
+            $orderBy = "date";
+        }
+        else if($orderBy == 2) {
+            $orderBy = "id";
+        }
+
+        if($orderType == 1 ) {
+            $orderType = "asc";
+        }
+        else {
+            $orderType = "desc";
+        }
+        
+
+        $transactions = Transaction::orderBy($orderBy,$orderType)->paginate(50);
 
         return view('admin.transactions.list',compact('title','transactions','pageno'));
     }

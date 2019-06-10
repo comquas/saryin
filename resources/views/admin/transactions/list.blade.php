@@ -21,7 +21,9 @@
              <tr>
                 <td>{{$no++}}</td>
                  <td>{{$transaction->name}}</td>
-                 <td><span class="{{($transaction->type == 1) ? 'income' : 'expend' }}">{{$transaction->amount}}</span></td>
+                 <td><span class="{{($transaction->type == 1) ? 'income' : 'expend' }}">
+                  {{number_format($transaction->amount,2)}}
+                </span></td>
                  <td>{{$transaction->currency}}</td>
                  <td><a href="{{route('transactions.edit',['id'=>$transaction->id])}}" class="btn btn-info"><i class="mdi mdi-pencil"></i> </a> &nbsp; 
                   <form action="{{route('transactions.destroy',['id'=>$transaction->id])}}" method="POST">
