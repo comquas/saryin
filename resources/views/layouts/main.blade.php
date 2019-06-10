@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
-    <link rel="stylesheet" href="{{ asset('css/design.css')}}">
+<link rel="stylesheet" href="{{ asset('css/design.css')}}?time={{time()}}">
     <link rel="stylesheet" href="{{ asset('css/select2.min.css')}}">
 
       <!-- plugins:js -->

@@ -13,3 +13,12 @@
 .expend {
     color:red;
 }
+
+.navbar.default-layout .navbar-brand-wrapper .navbar-brand img {
+    height: auto !important;
+    width: 65px !important;
+}
+
+.sidebar .nav .nav-item.nav-profile .nav-link .user-wrapper  {
+    margin-bottom: 0px;
+}

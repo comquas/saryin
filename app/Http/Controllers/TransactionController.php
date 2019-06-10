@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 class TransactionController extends Controller
 {
+
+    private function validation() {
+        return [
+            'name' => 'required',
+            'amount' => 'required|numeric',
+            'date' => 'required|date',
+            'categoryID' => 'nullable|integer',
+            'customerID' => 'nullable|integer',
+            'attachment' => 'optional|file|mimes:jpg,png,gif,pdf,zip'
+        ];
+    }
     /**
      * Display a listing of the resource.
      *
@@ -119,13 +130,7 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'amount' => 'required|numeric',
-            'date' => 'required|date',
-            'categoryID' => 'nullable|integer',
-            'customerID' => 'nullable|integer'
-        ]);
+        $request->validate($this->validation());
 
         $data = $request->all();
         
@@ -188,13 +193,7 @@ class TransactionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'amount' => 'required|numeric',
-            'date' => 'required|date',
-            'categoryID' => 'nullable|integer',
-            'customerID' => 'nullable|integer'
-        ]);
+        $request->validate($this->validation());
 
         $transaction = Transaction::where('id',$id)->first();
         if($transaction == null) {
@@ -205,8 +204,11 @@ class TransactionController extends Controller
         $data["date"] = Carbon::createFromFormat("d/m/Y",$data["date"]);
         if(isset($request->attachment)) {
             if($request->file('attachment')->isValid()) {
+                //delete old file
+                Storage::delete($transaction->attachment);
                 $path = $request->file('attachment')->store('transactions');
                 $data["attachment"] = $path;
+
             }
             else {
                 abort(401,$request->file('attachment')->getErrorMessage());
