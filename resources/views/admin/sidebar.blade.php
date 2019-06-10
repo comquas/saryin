@@ -22,7 +22,7 @@
 
           <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-transaction" aria-expanded="false" aria-controls="ui-category">
-                <i class="menu-icon mdi mdi-shape"></i>
+                <i class="menu-icon mdi mdi-chart-line"></i>
                 <span class="menu-title">Transactions</span>
                 <i class="menu-arrow"></i>
               </a>
@@ -46,7 +46,7 @@
 
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-category" aria-expanded="false" aria-controls="ui-category">
-              <i class="menu-icon mdi mdi-shape"></i>
+              <i class="menu-icon mdi mdi-shape-outline"></i>
               <span class="menu-title">Categories</span>
               <i class="menu-arrow"></i>
             </a>
@@ -65,7 +65,7 @@
 
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-customer" aria-expanded="false" aria-controls="ui-category">
-              <i class="menu-icon mdi mdi-shape"></i>
+              <i class="menu-icon mdi mdi-account-outline"></i>
               <span class="menu-title">Customers</span>
               <i class="menu-arrow"></i>
             </a>
