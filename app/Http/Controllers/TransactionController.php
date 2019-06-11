@@ -14,7 +14,7 @@ class TransactionController extends Controller
         return [
             'name' => 'required',
             'amount' => 'required|numeric',
-            'date' => 'required|date',
+            'date' => 'required|date_format:d/m/Y',
             'categoryID' => 'nullable|integer',
             'customerID' => 'nullable|integer',
             'attachment' => 'nullable|file|mimes:jpg,jpeg,png,gif,pdf,zip'
@@ -60,39 +60,39 @@ class TransactionController extends Controller
     }
 
 
-    private function formData($edit,$transaction,$type) {
+    private function formData($edit,$transaction,$type,$request) {
 
         $formData = [
             [
                 "label" => "Name",
                 "name" => "name",
                 "edit" => $edit,
-                "value" => isset($transaction->name) ? $transaction->name : ""
+                "value" => isset($transaction->name) ? $transaction->name : old("name","")
             ],
             [
                 "label" => "Date",
                 "name" => "date",
                 "edit" => $edit,
-                "value" => isset($transaction->date) ? Carbon::parse($transaction->date)->format("d/m/Y") : "",
+                "value" => isset($transaction->date) ? Carbon::parse($transaction->date)->format("d/m/Y") : old("date",""),
                 "date" => true
             ],
             [
                 "label" => "Currency",
                 "name" => "currency",
                 "edit" => $edit,
-                "value" => isset($transaction->currency) ? $transaction->currency : "MMK",
+                "value" => isset($transaction->currency) ? $transaction->currency : old("currency","MMK"),
             ],
             [
                 "label" => "Amount",
                 "name" => "amount",
                 "edit" => $edit,
-                "value" => isset($transaction->amount) ? $transaction->amount : ""
+                "value" => isset($transaction->amount) ? $transaction->amount : old("amount","")
             ],
             [
                 "label" => "Description",
                 "name" => "description",
                 "edit" => $edit,
-                "value" => isset($transaction->description) ? $transaction->description : ""
+                "value" => isset($transaction->description) ? $transaction->description : old("description","")
             ],
             
             [
