@@ -7411,7 +7411,7 @@
   --gray: #6c757d;
   --gray-light: #8ba2b5;
   --gray-lightest: #f7f7f9;
-  --primary: #308ee0;
+  --primary: #645fce;
   --secondary: #e5e5e5;
   --success: #00ce68;
   --info: #8862e0;
@@ -9026,8 +9026,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #308ee0;
-  border-color: #308ee0; }
+  background-color: #645fce;
+  border-color: #645fce; }
   .btn-primary:hover {
     color: #fff;
     background-color: #1e7bcb;
@@ -9036,8 +9036,8 @@ fieldset:disabled a.btn {
     box-shadow: 0 0 0 0.2rem rgba(48, 142, 224, 0.5); }
   .btn-primary.disabled, .btn-primary:disabled {
     color: #fff;
-    background-color: #308ee0;
-    border-color: #308ee0; }
+    background-color: #645fce;
+    border-color: #645fce; }
   .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
   .show > .btn-primary.dropdown-toggle {
     color: #fff;
@@ -9209,24 +9209,24 @@ fieldset:disabled a.btn {
       box-shadow: 0 0 0 0.2rem rgba(66, 73, 100, 0.5); }
 
 .btn-outline-primary {
-  color: #308ee0;
+  color: #645fce;
   background-color: transparent;
   background-image: none;
-  border-color: #308ee0; }
+  border-color: #645fce; }
   .btn-outline-primary:hover {
     color: #fff;
-    background-color: #308ee0;
-    border-color: #308ee0; }
+    background-color: #645fce;
+    border-color: #645fce; }
   .btn-outline-primary:focus, .btn-outline-primary.focus {
     box-shadow: 0 0 0 0.2rem rgba(48, 142, 224, 0.5); }
   .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-    color: #308ee0;
+    color: #645fce;
     background-color: transparent; }
   .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active,
   .show > .btn-outline-primary.dropdown-toggle {
     color: #fff;
-    background-color: #308ee0;
-    border-color: #308ee0; }
+    background-color: #645fce;
+    border-color: #645fce; }
     .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
     .show > .btn-outline-primary.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.2rem rgba(48, 142, 224, 0.5); }
@@ -10626,7 +10626,7 @@ tbody.collapse.show {
 
 .badge-primary {
   color: #fff;
-  background-color: #308ee0; }
+  background-color: #645fce; }
   .badge-primary[href]:hover, .badge-primary[href]:focus {
     color: #fff;
     text-decoration: none;
@@ -11478,7 +11478,7 @@ button.close {
   vertical-align: text-top !important; }
 
 .bg-primary {
-  background-color: #308ee0 !important; }
+  background-color: #645fce !important; }
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
@@ -11578,7 +11578,7 @@ button.bg-dark:focus {
   border-left: 0 !important; }
 
 .border-primary {
-  border-color: #308ee0 !important; }
+  border-color: #645fce !important; }
 
 .border-secondary, .loader-demo-box {
   border-color: #e5e5e5 !important; }
@@ -13314,7 +13314,7 @@ button.bg-dark:focus {
   color: #fff !important; }
 
 .text-primary {
-  color: #308ee0 !important; }
+  color: #645fce !important; }
 
 a.text-primary:hover, a.text-primary:focus {
   color: #1d74c0 !important; }
@@ -13755,7 +13755,7 @@ input:focus {
       .sidebar .nav .nav-item .nav-link:hover {
         color: #3d3d3d; }
     .sidebar .nav .nav-item.active > .nav-link {
-      color: #308ee0; }
+      color: #645fce; }
       .sidebar .nav .nav-item.active > .nav-link .menu-title,
       .sidebar .nav .nav-item.active > .nav-link i {
         color: inherit; }
@@ -13798,10 +13798,10 @@ input:focus {
         line-height: 1;
         height: auto; }
         .sidebar .nav.sub-menu .nav-item .nav-link.active {
-          color: #308ee0;
+          color: #645fce;
           background: transparent; }
           .sidebar .nav.sub-menu .nav-item .nav-link.active:before {
-            background: #308ee0; }
+            background: #645fce; }
       .sidebar .nav.sub-menu .nav-item:hover > .nav-link {
         background: initial;
         color: #000; }
@@ -14090,9 +14090,9 @@ address p {
   margin-bottom: 0; }
 
 .blockquote-primary {
-  border-color: #308ee0; }
+  border-color: #645fce; }
   .blockquote-primary .blockquote-footer {
-    color: #308ee0; }
+    color: #645fce; }
 
 .blockquote-secondary {
   border-color: #e5e5e5; }
@@ -14395,7 +14395,7 @@ pre {
   .status-indicator.online {
     border-color: #00ce68; }
   .status-indicator.offline {
-    border-color: #308ee0; }
+    border-color: #645fce; }
   .status-indicator.away {
     border-color: #ffaf00; }
 
@@ -14620,7 +14620,7 @@ pre {
   .dashboard-bar-chart-legend .col:nth-child(1) .bg {
     background: #8862e0; }
   .dashboard-bar-chart-legend .col:nth-child(2) .bg {
-    background: #308ee0; }
+    background: #645fce; }
   .dashboard-bar-chart-legend .col:nth-child(3) .bg {
     background: #e65251; }
 
@@ -14654,7 +14654,7 @@ pre {
 
 /*Badge variations*/
 .badge-primary {
-  border: 1px solid #308ee0;
+  border: 1px solid #645fce;
   color: #ffffff; }
 
 .badge-secondary {
@@ -14688,7 +14688,7 @@ pre {
 /*Badge inverse variations*/
 .badge-inverse-primary {
   background: rgba(48, 142, 224, 0.3);
-  color: #308ee0; }
+  color: #645fce; }
 
 .badge-inverse-secondary {
   background: rgba(229, 229, 229, 0.3);
@@ -14720,8 +14720,8 @@ pre {
 
 /*Badge outlined variations*/
 .badge-outline-primary {
-  color: #308ee0;
-  border: 1px solid #308ee0; }
+  color: #645fce;
+  border: 1px solid #645fce; }
 
 .badge-outline-secondary {
   color: #e5e5e5;
@@ -15038,24 +15038,24 @@ pre {
 
 /* inverse buttons */
 .btn-inverse-primary {
-  color: #308ee0;
+  color: #645fce;
   background-color: rgba(48, 142, 224, 0.2);
   background-image: none;
   border-color: rgba(48, 142, 224, 0); }
   .btn-inverse-primary:hover {
     color: #ffffff;
-    background-color: #308ee0;
-    border-color: #308ee0; }
+    background-color: #645fce;
+    border-color: #645fce; }
   .btn-inverse-primary.focus, .btn-inverse-primary:focus {
     box-shadow: 0 0 0 3px rgba(48, 142, 224, 0.5); }
   .btn-inverse-primary.disabled, .btn-inverse-primary:disabled {
-    color: #308ee0;
+    color: #645fce;
     background-color: transparent; }
   .btn-inverse-primary.active, .btn-inverse-primary:active,
   .show > .btn-inverse-primary.dropdown-toggle {
     color: #ffffff;
-    background-color: #308ee0;
-    border-color: #308ee0; }
+    background-color: #645fce;
+    border-color: #645fce; }
 
 .btn-inverse-secondary {
   color: #e5e5e5;
@@ -15199,23 +15199,23 @@ pre {
 
 /* Inverse Outlined Buttons */
 .btn-inverse-outline-primary {
-  color: #308ee0;
+  color: #645fce;
   background-image: none;
   background: transparent;
   border-color: rgba(48, 142, 224, 0.2); }
   .btn-inverse-outline-primary:hover {
-    color: #308ee0;
+    color: #645fce;
     background-color: rgba(48, 142, 224, 0.2);
     border-color: rgba(48, 142, 224, 0.2); }
   .btn-inverse-outline-primary.focus, .btn-inverse-outline-primary:focus {
     box-shadow: 0 0 0 3px rgba(48, 142, 224, 0.5); }
   .btn-inverse-outline-primary.disabled, .btn-inverse-outline-primary:disabled {
-    color: #308ee0;
+    color: #645fce;
     background-color: transparent; }
   .btn-inverse-outline-primary.active, .btn-inverse-outline-primary:active,
   .show > .btn-inverse-outline-primary.dropdown-toggle {
     color: #ffffff;
-    border-color: #308ee0; }
+    border-color: #645fce; }
 
 .btn-inverse-outline-secondary {
   color: #e5e5e5;
@@ -15361,7 +15361,7 @@ pre {
   .card.card-outline-success {
     border: 1px solid #00ce68; }
   .card.card-outline-primary {
-    border: 1px solid #308ee0; }
+    border: 1px solid #645fce; }
   .card.card-outline-warning {
     border: 1px solid #ffaf00; }
   .card.card-outline-danger {
@@ -15728,7 +15728,7 @@ select.form-control {
       font-size: 20px;
       width: 40px;
       text-align: left;
-      color: #308ee0; }
+      color: #645fce; }
 
 /* Lists */
 dl,
@@ -15794,7 +15794,7 @@ ul {
       content: "";
       position: absolute;
       border-radius: 100%;
-      border-color: #308ee0; }
+      border-color: #645fce; }
     .bullet-line-list li:after {
       content: "";
       border: 1px solid #f2f2f2;
