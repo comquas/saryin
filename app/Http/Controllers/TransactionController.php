@@ -60,7 +60,7 @@ class TransactionController extends Controller
     }
 
 
-    private function formData($edit,$transaction,$type,$request) {
+    private function formData($edit,$transaction,$type) {
 
         $formData = [
             [
