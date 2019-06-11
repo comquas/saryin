@@ -17,7 +17,7 @@ class TransactionController extends Controller
             'date' => 'required|date',
             'categoryID' => 'nullable|integer',
             'customerID' => 'nullable|integer',
-            'attachment' => 'nullable|file|mimes:jpg,png,gif,pdf,zip'
+            'attachment' => 'nullable|file|mimes:jpg,jpeg,png,gif,pdf,zip'
         ];
     }
     /**
