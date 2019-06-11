@@ -15,6 +15,6 @@ class Transaction extends Model
 
     public function customer()
     {
-        return $this->hasOne('App\Category','id','customerID');
+        return $this->hasOne('App\Customer','id','customerID');
     }
 }
