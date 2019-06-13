@@ -21,6 +21,9 @@ Route::middleware(['auth:web'])->prefix('acc')->group(function () {
     Route::get('category/search/type/{type}','CategoryController@search')->name('category.search');
     Route::get('customer/search','CustomerController@search')->name('customer.search');
     Route::resource('users','UserController');
+
+    Route::get('transactions/report/{year}/{type}','DashboardController@groupByMonth')->name('transaction.year');
+
 });
 
 Auth::routes(['register' => false]);

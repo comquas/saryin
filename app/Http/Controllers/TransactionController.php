@@ -7,6 +7,7 @@ use App\Transaction;
 use Auth;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use DB;
 class TransactionController extends Controller
 {
 
@@ -257,4 +258,6 @@ class TransactionController extends Controller
         $transaction->delete();
         return redirect()->route('transactions.index');
     }
+
+   
 }

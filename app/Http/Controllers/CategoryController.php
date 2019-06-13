@@ -122,7 +122,7 @@ class CategoryController extends Controller
 
     public function search($type,Request $request) {
         
-        if($request->q != "" && strlen($request->q) > 3) {
+        if($request->q != "" && strlen($request->q) >= 3) {
             $results = Category::select('id','name as text')->where("name","like","%".$request->q . "%")->where("type",(int)$type)->limit(10)->get();
             return response()->json($results->toArray());
         }
