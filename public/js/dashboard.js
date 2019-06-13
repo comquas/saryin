@@ -10,7 +10,7 @@ var barData = {
     backgroundColor: 'rgba(255, 99, 132, 0.2)',
     borderColor: 'rgba(255, 99, 132, 1)',
     borderWidth: 1,
-    fill: false
+    fill: true
   },
   {
     label: 'Income',
@@ -18,7 +18,7 @@ var barData = {
     backgroundColor: 'rgba(74, 242, 161, 0.2)',
     borderColor: 'rgba(74, 242, 161)',
     borderWidth: 1,
-    fill: false
+    fill: true
   },
   {
     label: 'Profit',
@@ -26,7 +26,7 @@ var barData = {
     backgroundColor: 'rgba(30, 46, 166, 0.2)',
     borderColor: 'rgba(30, 46, 166)',
     borderWidth: 1,
-    fill: false
+    fill: true
   }
   ]
 };
@@ -35,7 +35,7 @@ $(document).ready(function () {
 
   var ctx = document.getElementById('monthbyyear');
   window.myBar = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: barData,
     options: {
       responsive: true,
