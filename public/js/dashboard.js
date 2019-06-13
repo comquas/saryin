@@ -50,6 +50,10 @@ $(document).ready(function () {
   });
 
   loadData();
+
+  $("#dyears").on('change', function() {
+    loadData();
+  });
 });
 
 
