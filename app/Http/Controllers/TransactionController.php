@@ -33,6 +33,8 @@ class TransactionController extends Controller
         if($pageno == null) {
             $pageno = 1;
         }
+
+        
         $orderBy = $request->orderBy;
         $orderType = $request->orderType;
 
