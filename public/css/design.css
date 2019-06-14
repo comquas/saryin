@@ -22,3 +22,9 @@
 .sidebar .nav .nav-item.nav-profile .nav-link .user-wrapper  {
     margin-bottom: 0px;
 }
+
+ul.nav {
+    position: fixed;
+    overflow-y: scroll;
+    min-width: 255px;
+}
