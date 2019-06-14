@@ -1,4 +1,5 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <div id="navBar">
         <ul class="nav">
           <li class="nav-item nav-profile">
             <div class="nav-link">
@@ -82,4 +83,5 @@
           </li>
           
         </ul>
+    </div>
       </nav>
