@@ -25,6 +25,5 @@
 
 #navBar {
     position: fixed;
-    overflow-y: scroll;
     min-width: 255px;
 }
