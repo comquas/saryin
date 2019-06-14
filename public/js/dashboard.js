@@ -7,7 +7,7 @@ var barData = {
   datasets: [{
     label: 'Expense',
     data: dataOut,
-    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    backgroundColor: 'rgba(255, 99, 132, 0.8)',
     borderColor: 'rgba(255, 99, 132, 1)',
     borderWidth: 1,
     fill: true
@@ -15,7 +15,7 @@ var barData = {
   {
     label: 'Income',
     data: dataIn,
-    backgroundColor: 'rgba(74, 242, 161, 0.2)',
+    backgroundColor: 'rgba(74, 242, 161, 0.8)',
     borderColor: 'rgba(74, 242, 161)',
     borderWidth: 1,
     fill: true
@@ -23,10 +23,11 @@ var barData = {
   {
     label: 'Profit',
     data: dataProfit,
-    backgroundColor: 'rgba(30, 46, 166, 0.2)',
+    backgroundColor: 'rgba(30, 46, 166, 0.8)',
     borderColor: 'rgba(30, 46, 166)',
     borderWidth: 1,
-    fill: true
+    fill: true,
+    type: 'line'
   }
   ]
 };
