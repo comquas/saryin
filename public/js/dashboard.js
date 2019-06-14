@@ -26,7 +26,7 @@ var barData = {
     backgroundColor: 'rgba(30, 46, 166, 0.8)',
     borderColor: 'rgba(30, 46, 166)',
     borderWidth: 1,
-    fill: true,
+    fill: false,
     type: 'line'
   }
   ]
