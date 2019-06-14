@@ -27,3 +27,15 @@
     position: fixed;
     min-width: 255px;
 }
+
+.gj-picker-bootstrap table tr td div , .gj-picker-bootstrap table tr th div {
+    font-family: Poppins, sans-serif;
+}
+
+.gj-picker-bootstrap table tr td.today div  {
+    color: #645fce;
+}
+
+.gj-picker-bootstrap table tr th div {
+    color: #443873;
+}
