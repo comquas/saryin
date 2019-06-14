@@ -253,7 +253,7 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        $transaction = Transaction::where('id',$id);
+        $transaction = Transaction::where('id',$id)->first();
         if($transaction->attachment !=null && $transaction->attachment != "") {
             Storage::delete($transaction->attachment);
         }
