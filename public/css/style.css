@@ -9026,12 +9026,12 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-image:linear-gradient(to right, #645fce 0%, #a6c1ee 51%, #433771 100%);
+  background-color: #645fce;
   border-color: #645fce; }
   .btn-primary:hover {
     color: #fff;
-    background-position: right center;
-     }
+    background-color: #443873;
+    border-color: #31265A; }
   .btn-primary:focus, .btn-primary.focus {
     box-shadow: 0 0 0 0.2rem rgba(48, 142, 224, 0.5); }
   .btn-primary.disabled, .btn-primary:disabled {
