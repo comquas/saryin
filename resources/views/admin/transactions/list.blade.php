@@ -65,15 +65,15 @@
 <div class="d-flex flex-column flex-lg-row">
   <div class="wrapper pr-5">
       <h5 class="mb-0">Income</h5>
-      <small class="income">{{$inAmount}}</small>
+      <small class="income">{{number_format($inAmount,0)}}</small>
   </div>
   <div class="wrapper pr-5">
       <h5 class="mb-0">Expense</h5>
-      <small class="expend">{{$outAmount}}</small>
+      <small class="expend">{{number_format($outAmount,0)}}</small>
   </div>
   <div class="wrapper pr-5">
       <h5 class="mb-0">Real Amount</h5>
-      <small>{{$diffAmount}}</small>
+      <small>{{number_format($diffAmount,0)}}</small>
   </div>
 </div>
 <table class="table">
@@ -98,7 +98,7 @@
                 <td>{{$transaction->id}}</td>
                  <td>{{$transaction->name}}</td>
                  <td><span class="{{($transaction->type == 1) ? 'income' : 'expend' }}">
-                  {{number_format($transaction->amount,2)}}
+                  {{number_format($transaction->amount,0)}}
                 </span></td>
                  <td>{{$transaction->currency}}</td>
                  <td>{{$transaction->date}}</td>
