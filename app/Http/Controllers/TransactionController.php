@@ -61,6 +61,7 @@ class TransactionController extends Controller
         $dates = $request->dates;
         if($dates != null) {
             $d = explode("-",$dates);
+            dd($d);
             $start = Carbon::createFromFormat("d/m/Y",$d[0]);
             $end = Carbon::createFromFormat("d/m/Y",$d[1]);
 
