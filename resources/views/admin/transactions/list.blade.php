@@ -11,15 +11,15 @@
               <div class="col-sm-5">
                   <select name="orderBy" class="form-control form-control-sm">
                       <option value=""></option>
-                    <option value="1" {{$orderBy == 1 ? "selected" : ""}}>Date</option>
-                    <option value="2" {{$orderBy == 2 ? "selected" : ""}}>ID</option>
+                    <option value="1" {{$orderBy == "date" ? "selected" : ""}}>Date</option>
+                    <option value="2" {{$orderBy == "id" ? "selected" : ""}}>ID</option>
                   </select>
               </div>
               <div class="col-sm-4">
                   <select name="orderType" class="form-control form-control-sm">
                       <option value=""></option>
-                    <option value="1" {{$orderType == 1 ? "selected" : ""}}>Asc</option>
-                    <option value="2" {{$orderType == 2 ? "selected" : ""}}>Desc</option>
+                    <option value="1" {{$orderType == "asc" ? "selected" : ""}}>Asc</option>
+                    <option value="2" {{$orderType == "desc" ? "selected" : ""}}>Desc</option>
                   </select>
               </div>
           </div>
@@ -62,11 +62,23 @@
 @endsection
 
 @section('content-data')
-
+<div class="d-flex flex-column flex-lg-row">
+  <div class="wrapper pr-5">
+      <h5 class="mb-0">Income</h5>
+      <small class="income">{{$inAmount}}</small>
+  </div>
+  <div class="wrapper pr-5">
+      <h5 class="mb-0">Expense</h5>
+      <small class="expend">{{$outAmount}}</small>
+  </div>
+  <div class="wrapper pr-5">
+      <h5 class="mb-0">Real Amount</h5>
+      <small>{{$diffAmount}}</small>
+  </div>
+</div>
 <table class="table">
         <thead>
           <tr>
-            <th>No</th>
             <th>ID</th>
             <th>Name</th>
             <th>Amount</th>
@@ -82,7 +94,7 @@
           ?>
          @foreach ($transactions as $transaction)
              <tr>
-                <td>{{$no++}}</td>
+                
                 <td>{{$transaction->id}}</td>
                  <td>{{$transaction->name}}</td>
                  <td><span class="{{($transaction->type == 1) ? 'income' : 'expend' }}">

@@ -61,9 +61,9 @@ class TransactionController extends Controller
         $dates = $request->dates;
         if($dates != null) {
             $d = explode("-",$dates);
-            dd($d);
-            $start = Carbon::createFromFormat("d/m/Y",$d[0]);
-            $end = Carbon::createFromFormat("d/m/Y",$d[1]);
+            
+            $start = Carbon::createFromFormat("d/m/Y",trim($d[0]));
+            $end = Carbon::createFromFormat("d/m/Y",trim($d[1]));
 
             $transactions->where('date','>=',$start)->where('date','<=',$end);
         }
@@ -81,9 +81,15 @@ class TransactionController extends Controller
         else {
             $type == "";
         }
-        $transactions = $transactions->orderBy($orderBy,$orderType)->paginate(50);
+        $transactions = $transactions->orderBy($orderBy,$orderType);
 
-        return view('admin.transactions.list',compact('title','transactions','pageno','orderBy','orderType','dates','type'));
+        $inAmount = (clone $transactions)->where("type",1)->sum("amount");
+        $outAmount = (clone $transactions)->where("type","!=",1)->sum("amount");
+        $diffAmount = $inAmount - $outAmount;
+        
+        $transactions = $transactions->paginate(50);
+        return view('admin.transactions.list',compact('title','transactions',
+        'pageno','orderBy','orderType','dates','type','inAmount','outAmount','diffAmount'));
     }
 
 
