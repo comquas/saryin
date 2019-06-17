@@ -55,11 +55,34 @@ class TransactionController extends Controller
         else {
             $orderType = "desc";
         }
-        
 
-        $transactions = Transaction::orderBy($orderBy,$orderType)->paginate(50);
+        $transactions = Transaction::query();
 
-        return view('admin.transactions.list',compact('title','transactions','pageno'));
+        $dates = $request->dates;
+        if($dates != null) {
+            $d = explode("-",$dates);
+            $start = Carbon::createFromFormat("d/m/Y",$d[0]);
+            $end = Carbon::createFromFormat("d/m/Y",$d[1]);
+
+            $transactions->where('date','>=',$start)->where('date','<=',$end);
+        }
+
+        $type = $request->type;
+
+        if($type != null) {
+            if($type == 4) {
+                $transactions->where("type",2)->where("type",3);
+            }
+            else {
+                $transactions->where("type",$type);
+            }
+        }
+        else {
+            $type == "";
+        }
+        $transactions = $transactions->orderBy($orderBy,$orderType)->paginate(50);
+
+        return view('admin.transactions.list',compact('title','transactions','pageno','orderBy','orderType','dates','type'));
     }
 
 

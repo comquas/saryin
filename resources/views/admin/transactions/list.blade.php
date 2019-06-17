@@ -11,15 +11,15 @@
               <div class="col-sm-5">
                   <select name="orderBy" class="form-control form-control-sm">
                       <option value=""></option>
-                    <option value="1">Date</option>
-                    <option value="2">ID</option>
+                    <option value="1" {{$orderBy == 1 ? "selected" : ""}}>Date</option>
+                    <option value="2" {{$orderBy == 2 ? "selected" : ""}}>ID</option>
                   </select>
               </div>
               <div class="col-sm-4">
                   <select name="orderType" class="form-control form-control-sm">
                       <option value=""></option>
-                    <option value="1">Asc</option>
-                    <option value="2">Desc</option>
+                    <option value="1" {{$orderType == 1 ? "selected" : ""}}>Asc</option>
+                    <option value="2" {{$orderType == 2 ? "selected" : ""}}>Desc</option>
                   </select>
               </div>
           </div>
@@ -30,7 +30,7 @@
           <div class="form-group row">
               <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm text-right">Date Range</label>
               <div class="col-sm-8">
-                <input type="text" name="dates" class="form-control form-control-sm" id="dates">
+              <input value="{{$dates}}" type="text" name="dates" class="form-control form-control-sm" id="dates">
               </div>
           </div>
         
@@ -42,10 +42,10 @@
               <div class="col-sm-9">
                 <select name="type" class="form-control form-control-sm">
                   <option value=""></option>
-                  <option value="1">Income</option>
-                  <option value="2">Expense</option>
-                  <option value="3">Assets</option>
-                  <option value="4">Expense + Assets</option>
+                  <option value="1" {{$type == 1 ? "selected" : ""}}>Income</option>
+                  <option value="2" {{$type == 2 ? "selected" : ""}}>Expense</option>
+                  <option value="3" {{$type == 3 ? "selected" : ""}}>Assets</option>
+                  <option value="4" {{$type == 4 ? "selected" : ""}}>Expense + Assets</option>
                   
                 </select>
               </div>
