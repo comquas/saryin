@@ -83,7 +83,7 @@ class TransactionController extends Controller
             $type == "";
         }
 
-        if($request->query !=null && trim($request->query) != "") {
+        if($request->query !=null && $request->query != "") {
             $transactions->where("name","like","%{$request->query}%");
         }
 
