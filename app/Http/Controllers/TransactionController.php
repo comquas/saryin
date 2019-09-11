@@ -83,10 +83,10 @@ class TransactionController extends Controller
             $type == "";
         }
 
-        if($request->query !=null || trim($request->query) != "") {
-            $transaction->where("name","like","%{$request->query}%");
+        if($request->query !=null && trim($request->query) != "") {
+            $transactions->where("name","like","%{$request->query}%");
         }
-        
+
         $transactions = $transactions->orderBy($orderBy,$orderType);
 
         $inAmount = (clone $transactions)->where("type",1)->sum("amount");
