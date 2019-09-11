@@ -102,7 +102,7 @@
              <tr>
                 
                 <td>{{$transaction->id}}</td>
-                 <td>{{$transaction->name}} {!! ($transaction->attachment != "") ? '<i class=\'mdi mdi-television\'></i> &nbsp;' : ''!!} </td>
+                 <td>{{$transaction->name}} {!! ($transaction->attachment != "") ? '<i class=\'mdi mdi-paperclip\'></i> &nbsp;' : ''!!} </td>
                  <td><span class="{{($transaction->type == 1) ? 'income' : 'expend' }}">
                   {{number_format($transaction->amount,0)}}
                 </span></td>
