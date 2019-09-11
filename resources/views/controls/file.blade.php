@@ -3,11 +3,13 @@
     @if ($value != "")
         @if(strtolower(substr($value,-4)) == ".jpg" || strtolower(substr($value,-5)) == ".jpeg" || strtolower(substr($value,-4)) == ".png")
             <figure>
-                <img src="{{$value}}" class="thumb-img">
+                <a target="_blank" href="{{$value}}">
+                    <img src="{{$value}}" class="thumb-img">
+                </a>
             </figure>
         @endif
 
-        <p>Download file at <a href="{{$value}}">{{$value}}</p>    
+        <p>Download file at <a target="_blank" href="{{$value}}">{{$value}}</p>    
     @endif
     
     <input type="file" id="{{$name}}" name="{{$name}}" placeholder="Select file for {{$label}}" class="form-control @error($name) is-invalid @enderror">                                
