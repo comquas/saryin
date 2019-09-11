@@ -30,6 +30,7 @@ class TransactionController extends Controller
     {
         $title = 'Transactions';
         $pageno = $request->page;
+        
         if($pageno == null) {
             $pageno = 1;
         }
@@ -81,11 +82,18 @@ class TransactionController extends Controller
         else {
             $type == "";
         }
+
+        if($request->query !=null || trim($request->query) != "") {
+            $transaction->where("name","like","%{$request->query}%");
+        }
+        
         $transactions = $transactions->orderBy($orderBy,$orderType);
 
         $inAmount = (clone $transactions)->where("type",1)->sum("amount");
         $outAmount = (clone $transactions)->where("type","!=",1)->sum("amount");
         $diffAmount = $inAmount - $outAmount;
+
+        
         
         $transactions = $transactions->paginate(50);
         return view('admin.transactions.list',compact('title','transactions',

@@ -4,9 +4,15 @@
 <form method="GET" action="{{route('transactions.index')}}">
     <input type="hidden" name="page" value="{{$pageno}}">
   <div class="row">
+      <div class="col-md-2">
+          <div class="form-group row">
+            <input placeholder="Name" type="text" autocomplete="off" name="query" value="{{$query}}">
+          </div>
+      </div>
       <div class="col-md-3">
   
           <div class="form-group row">
+            
               <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm text-right">Sort</label>
               <div class="col-sm-5">
                   <select name="orderBy" class="form-control form-control-sm">
@@ -19,7 +25,7 @@
                   <select name="orderType" class="form-control form-control-sm">
                       <option value=""></option>
                     <option value="1" {{$orderType == "asc" ? "selected" : ""}}>Asc</option>
-                    <option value="2" {{$orderType == "desc" ? "selected" : ""}}>Desc</option>
+                    <option value="2" {{$orderType == "desc" ? "selected" : ""}}>Des</option>
                   </select>
               </div>
           </div>
