@@ -3,12 +3,16 @@
 @section('content-controls')
 <form method="GET" action="{{route('transactions.index')}}">
     <input type="hidden" name="page" value="{{$pageno}}">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group row">
+              <input placeholder="Name" type="text" autocomplete="off" name="q" value="{{$query}}">
+            </div>
+        </div>
+    </div>
   <div class="row">
-      <div class="col-md-2">
-          <div class="form-group row">
-            <input placeholder="Name" type="text" autocomplete="off" name="q" value="{{$query}}">
-          </div>
-      </div>
+      
+
       <div class="col-md-3">
   
           <div class="form-group row">
