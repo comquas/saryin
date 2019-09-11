@@ -1,7 +1,7 @@
 <div class="form-group">
     <label for="exampleInputEmail1">{{$label}}</label>
     @if ($value != "")
-        @if(strtolower(substr($value,-4)) == ".jpg" || strtolower(substr($value,-4)) == ".png")
+        @if(strtolower(substr($value,-4)) == ".jpg" || strtolower(substr($value,-5)) == ".jpeg" || strtolower(substr($value,-4)) == ".png")
             <figure>
                 <img src="{{$value}}" class="thumb-img">
             </figure>
