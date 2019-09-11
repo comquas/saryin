@@ -97,8 +97,20 @@
           <?php
             $no = ($pageno - 1) * 50;
             $no = $no + 1;
+            $lastDate = "";
           ?>
          @foreach ($transactions as $transaction)
+            @php
+                $nowDate = substr($transaction->date,0,7);
+            @endphp
+            
+            @if ($lastDate != $nowDate)
+            <tr>
+              <td colspan="6" class="table-date">
+                {{$nowDate}}
+              </td>
+            </tr>
+            @endif
              <tr>
                 
                 <td>{{$transaction->id}}</td>
@@ -119,6 +131,10 @@
                   </form>
                 </a></td>
              </tr>
+
+             @php
+                 $lastDate = substr($transaction->date,0,7);
+             @endphp
          @endforeach
         </tbody>
       </table>
