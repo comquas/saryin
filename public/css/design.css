@@ -39,3 +39,8 @@
 .gj-picker-bootstrap table tr th div {
     color: #443873 !important;
 }
+
+.thumb-img {
+    width:120px;
+    height:auto;
+}
