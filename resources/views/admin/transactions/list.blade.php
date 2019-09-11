@@ -6,7 +6,7 @@
   <div class="row">
       <div class="col-md-2">
           <div class="form-group row">
-            <input placeholder="Name" type="text" autocomplete="off" name="query" value="{{$query}}">
+            <input placeholder="Name" type="text" autocomplete="off" name="q" value="{{$query}}">
           </div>
       </div>
       <div class="col-md-3">

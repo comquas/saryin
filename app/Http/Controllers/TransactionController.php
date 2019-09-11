@@ -83,8 +83,8 @@ class TransactionController extends Controller
             $type == "";
         }
 
-        if($request->query !=null && $request->query != "") {
-            $transactions->where("name","like","%{$request->query}%");
+        if($request->q !=null && $request->q != "") {
+            $transactions->where("name","like","%{$request->q}%");
         }
 
         $transactions = $transactions->orderBy($orderBy,$orderType);
