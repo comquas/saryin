@@ -83,8 +83,13 @@ class TransactionController extends Controller
             $type == "";
         }
 
-        if($request->q !=null && $request->q != "") {
-            $transactions->where("name","like","%{$request->q}%");
+        $query = $request->q;
+
+        if($query !=null && $query != "") {
+            $transactions->where("name","like","%{$query}%");
+        }
+        else {
+            $query = "";
         }
 
         $transactions = $transactions->orderBy($orderBy,$orderType);
@@ -97,7 +102,7 @@ class TransactionController extends Controller
         
         $transactions = $transactions->paginate(50);
         return view('admin.transactions.list',compact('title','transactions',
-        'pageno','orderBy','orderType','dates','type','inAmount','outAmount','diffAmount'));
+        'pageno','orderBy','orderType','dates','type','inAmount','outAmount','diffAmount','query'));
     }
 
 
