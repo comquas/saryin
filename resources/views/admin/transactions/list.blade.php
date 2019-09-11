@@ -6,17 +6,13 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group row">
-              <input placeholder="Name" type="text" autocomplete="off" name="q" value="{{$query}}">
+              <input class="form-control form-control-sm" placeholder="Name" type="text" autocomplete="off" name="q" value="{{$query}}">
             </div>
         </div>
     </div>
   <div class="row">
-      
-
       <div class="col-md-3">
-  
           <div class="form-group row">
-            
               <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm text-right">Sort</label>
               <div class="col-sm-5">
                   <select name="orderBy" class="form-control form-control-sm">
