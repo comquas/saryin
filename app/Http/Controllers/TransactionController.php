@@ -108,6 +108,8 @@ class TransactionController extends Controller
 
     private function formData($edit,$transaction,$type) {
 
+        
+
         $formData = [
             [
                 "label" => "Name",
@@ -152,9 +154,9 @@ class TransactionController extends Controller
                 "label" => "Category",
                 "name" => "categoryID",
                 "edit" => $edit,
-                "value" => isset($transaction->categoryID) ? $transaction->categoryID : "",
+                "value" => isset($transaction->categoryID) &&  $transaction->categoryID != 0 ? $transaction->categoryID : "",
                 "route" => route('category.search',["type"=>$type]),
-                "selectLabel" => isset($transaction->categoryID) ? $transaction->category->name : ""
+                "selectLabel" => isset($transaction->categoryID) &&  $transaction->categoryID != 0 ? $transaction->category->name : ""
             ],
             [
                 "label" => "Customer",

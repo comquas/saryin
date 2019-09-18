@@ -5,7 +5,7 @@
 
 @endsection
 @section('content-data')
-<form enctype="multipart/form-data" method="post" action="{{$edit ? route('transactions.update',['id'=>$id] ) : route('transactions.store')}}">
+<form enctype="multipart/form-data" method="post" action="{{$edit ? route('transactions.update',['transaction'=>$id] ) : route('transactions.store')}}">
     @csrf
     @if ($edit)
     @method('PUT')

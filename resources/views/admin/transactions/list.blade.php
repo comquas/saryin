@@ -121,9 +121,9 @@
                  <td>{{$transaction->currency}}</td>
                  <td>{{$transaction->date}}</td>
                  <td> 
-                  <form class="form-inline" action="{{route('transactions.destroy',['id'=>$transaction->id])}}" method="POST">
+                  <form class="form-inline" action="{{route('transactions.destroy',['transaction'=>$transaction->id])}}" method="POST">
 
-                    <a href="{{route('transactions.edit',['id'=>$transaction->id])}}" class="btn btn-info"><i class="mdi mdi-pencil"></i> </a> &nbsp;
+                    <a href="{{route('transactions.edit',['transaction'=>$transaction->id])}}" class="btn btn-info"><i class="mdi mdi-pencil"></i> </a> &nbsp;
                     
                     @csrf
                     @method('DELETE')
