@@ -26,6 +26,9 @@
   <!-- endinject -->
   <script src="{{ asset('js/select2.full.min.js')}}"></script>
 
+  <link rel="apple-touch-icon" href="{{asset('images/touch.png')}}">
+  <link rel="icon" sizes="150x150" href="{{asset('images/touch.png')}}">
+
   @yield('header')
 </head>
 <body>
