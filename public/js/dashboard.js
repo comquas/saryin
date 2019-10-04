@@ -74,14 +74,23 @@ function loadData() {
 
 function loadGraph(indata,outdata) {
   
+    barData.datasets[1].data = [0,0,0,0,0,0,0,0,0,0,0,0];
+    barData.datasets[0].data = [0,0,0,0,0,0,0,0,0,0,0,0];
+    barData.datasets[2].data = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+    dataIn = [0,0,0,0,0,0,0,0,0,0,0,0];
+    dataOut = [0,0,0,0,0,0,0,0,0,0,0,0];
+
    for (let index = 0; index < indata.length; index++) {
      const element = indata[index];
      barData.datasets[1].data[element.month-1] = element.count/100000;
+     dataIn[element.month-1] = element.count/100000;
    }
 
    for (let index = 0; index < outdata.length; index++) {
     const element = outdata[index];
     barData.datasets[0].data[element.month-1] = element.count/100000;
+    dataOut[element.month-1] = element.count/100000;
   }
 
   dataProfit = dataIn.map(function(item, index) {
@@ -89,6 +98,8 @@ function loadGraph(indata,outdata) {
     // using index to get value from array b
     return item - dataOut[index];
   });
+
+
 
   barData.datasets[2].data = dataProfit;
   

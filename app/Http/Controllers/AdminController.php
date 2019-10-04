@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     function index() {
         //distinct year for transaction
-        $transactionYears = Transaction::select(DB::raw("Year(date) as year"))->distinct()->get(['year']);
+        $transactionYears = Transaction::select(DB::raw("Year(date) as year"))->distinct()->orderBy('year', 'DESC')->get(['year']);
         
         return view('admin.home',compact('transactionYears'));
     }
