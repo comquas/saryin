@@ -1,7 +1,9 @@
 var dataIn = [0,0,0,0,0,0,0,0,0,0,0,0];
 var dataOut = [0,0,0,0,0,0,0,0,0,0,0,0];
 var dataProfit = [0,0,0,0,0,0,0,0,0,0,0,0];
-
+var totalIn = 0;
+var totalOut = 0;
+var totalProfit = 0;
 var barData = {
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   datasets: [{
@@ -81,16 +83,22 @@ function loadGraph(indata,outdata) {
     dataIn = [0,0,0,0,0,0,0,0,0,0,0,0];
     dataOut = [0,0,0,0,0,0,0,0,0,0,0,0];
 
+
+    totalIn = 0;
+    totalOut = 0;
+    totalProfit = 0;
    for (let index = 0; index < indata.length; index++) {
      const element = indata[index];
      barData.datasets[1].data[element.month-1] = element.count/100000;
      dataIn[element.month-1] = element.count/100000;
+     totalIn = totalIn + element.count/100000;
    }
 
    for (let index = 0; index < outdata.length; index++) {
     const element = outdata[index];
     barData.datasets[0].data[element.month-1] = element.count/100000;
     dataOut[element.month-1] = element.count/100000;
+    totalOut = totalOut + element.count/100000;
   }
 
   dataProfit = dataIn.map(function(item, index) {
@@ -99,12 +107,15 @@ function loadGraph(indata,outdata) {
     return item - dataOut[index];
   });
 
-
+  totalProfit = totalIn - totalOut;
 
   barData.datasets[2].data = dataProfit;
   
   window.myBar.update();
 
-
+  document.getElementById("inlahk").innerHTML = "Total Income<br/>" + totalIn.toFixed(2) + " lakh";
+  document.getElementById("outlahk").innerHTML = "Total Expense<br/>" + totalOut.toFixed(2) + " lakh";
+  document.getElementById("profitlahk").innerHTML = "Total Profit<br/>" + totalProfit.toFixed(2) + " lakh";
+  
 
 }
