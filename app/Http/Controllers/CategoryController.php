@@ -132,4 +132,15 @@ class CategoryController extends Controller
         
         
     }
+
+    public function categorySearch(Request $request) {
+        
+        if($request->q != "" && strlen($request->q) >= 3) {
+            $results = Category::select('id','name as text')->where("name","like","%".$request->q . "%")->limit(10)->get();
+            return response()->json($results->toArray());
+        }
+        else {
+            return response()->json(array());
+        } 
+    }
 }

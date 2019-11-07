@@ -28,8 +28,10 @@ $catType = [
                  <td>{{$category->name}}</td>
                  <td>{{$catType[$category->type]}}</td>
                  <td>
-                  <form class="form-inline"  action="{{route('categories.destroy',['id'=>$category->id])}}" method="POST">
-                    <a href="{{route('categories.edit',['id'=>$category->id])}}" class="btn btn-info"><i class="mdi mdi-pencil"></i> </a> &nbsp; 
+                  <form class="form-inline"  action="{{route('categories.destroy',$category->id)}}" method="POST">
+
+                    <a href="{{route('categories.edit', $category->id)}}" class="btn btn-info"><i class="mdi mdi-pencil"></i> </a> &nbsp;
+
                     @csrf
                     @method('DELETE')
                         <button class="btn btn-danger" type="submit"><i class="mdi mdi-delete"></i></button>

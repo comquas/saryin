@@ -42,6 +42,10 @@
                 
             
             <canvas class="mt-5 chartjs-render-monitor" height="500" id="monthbyyear" width="1296"></canvas>
+
+            
+                <canvas class="mt-5 chartjs-render-monitor" height="400" id="expendpiechart" width="1296"></canvas>
+            
         </div>
       </div>
     </div>
@@ -49,4 +53,5 @@
 @endsection
 @section('script')
 <script src="{{asset('js/dashboard.js')}}"></script>
+<script src="{{ asset('js/dashboard-pie-chart.js') }}"></script>
 @endsection

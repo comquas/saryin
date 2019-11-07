@@ -11,10 +11,10 @@
         </div>
     </div>
   <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-4">
           <div class="form-group row">
-              <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm text-right">Sort</label>
-              <div class="col-sm-5">
+              <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm text-left">Sort</label>
+              <div class="col-sm-4">
                   <select name="orderBy" class="form-control form-control-sm">
                       <option value=""></option>
                     <option value="1" {{$orderBy == "date" ? "selected" : ""}}>Date</option>
@@ -41,12 +41,12 @@
           </div>
         
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
   
           <div class="form-group row">
               <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm text-right">Type</label>
               <div class="col-sm-9">
-                <select name="type" class="form-control form-control-sm">
+                <select name="type" class="form-control form-control-sm" id="type">
                   <option value=""></option>
                   <option value="1" {{$type == 1 ? "selected" : ""}}>Income</option>
                   <option value="2" {{$type == 2 ? "selected" : ""}}>Expense</option>
@@ -58,6 +58,17 @@
           </div>
   
       </div>
+
+      <div class="col-md-4">
+        <div class="form-group row">
+          <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm text-left">Category</label>
+          <div class="col-sm-8">
+            <select name="category" class="form-control form-control-sm" name="category" id="category">           
+            </select>
+          </div>
+        </div>  
+      </div>
+
       <div class="col-md-2">
         <input type="submit" class="btn btn-primary" value="Search">
       </div>
@@ -151,6 +162,38 @@
 @section('script')
 <script>
   $(document).ready(function() {
+
+    
+
+      $('#category').select2({     
+        minimumInputLength: 3,       
+        ajax: {
+          url: 'category/search/category',
+
+          data: function (params) {
+            return {
+              "_token": "{{ csrf_token() }}",
+              q: params.term, // search term
+            };
+          },
+          dataType: 'json',
+          delay: 250,          
+          processResults: function (data) {
+            console.log(data);
+            return {
+              results:  $.map(data, function (item) {
+                    return {
+                        text: item.text,
+                        id: item.id
+                    }
+                })
+            };
+          },
+          cache: true
+        }
+      });
+      
+
     $('input[name="dates"]').daterangepicker({
       autoUpdateInput: false,
       locale: {

@@ -28,6 +28,7 @@ class TransactionController extends Controller
      */
     public function index(Request $request)
     {
+        // dd($request->all());
         $title = 'Transactions';
         $pageno = $request->page;
         
@@ -63,8 +64,10 @@ class TransactionController extends Controller
         if($dates != null) {
             $d = explode("-",$dates);
             
-            $start = Carbon::createFromFormat("d/m/Y",trim($d[0]));
-            $end = Carbon::createFromFormat("d/m/Y",trim($d[1]));
+            $start = Carbon::createFromFormat("d/m/Y",trim($d[0]))->toDateString();
+            $end = Carbon::createFromFormat("d/m/Y",trim($d[1]))->toDateString();
+
+            // dd($end);
 
             $transactions->where('date','>=',$start)->where('date','<=',$end);
         }
@@ -78,6 +81,15 @@ class TransactionController extends Controller
             else {
                 $transactions->where("type",$type);
             }
+        }
+        else {
+            $type == "";
+        }
+
+        $category = $request->category;
+
+        if($category != null) {            
+            $transactions->where("categoryID", $category);            
         }
         else {
             $type == "";
@@ -101,6 +113,8 @@ class TransactionController extends Controller
         
         
         $transactions = $transactions->paginate(50);
+
+        // dd($transactions);
         return view('admin.transactions.list',compact('title','transactions',
         'pageno','orderBy','orderType','dates','type','inAmount','outAmount','diffAmount','query'));
     }

@@ -19,10 +19,13 @@ Route::middleware(['auth:web'])->prefix('acc')->group(function () {
     Route::resource('customers','CustomerController');
     Route::resource('transactions','TransactionController');
     Route::get('category/search/type/{type}','CategoryController@search')->name('category.search');
+    Route::get('category/search/category','CategoryController@categorySearch');
     Route::get('customer/search','CustomerController@search')->name('customer.search');
     Route::resource('users','UserController');
 
     Route::get('transactions/report/{year}/{type}','DashboardController@groupByMonth')->name('transaction.year');
+
+    Route::get('transactions/report/expend', 'DashboardController@expend')->name('transaction.expend');
 
 });
 
