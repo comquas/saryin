@@ -162,36 +162,34 @@
 @section('script')
 <script>
   $(document).ready(function() {
-
     
+  $('#category').select2({     
+    minimumInputLength: 3,       
+    ajax: {
+      url: 'category/search/category',
 
-      $('#category').select2({     
-        minimumInputLength: 3,       
-        ajax: {
-          url: 'category/search/category',
-
-          data: function (params) {
-            return {
-              "_token": "{{ csrf_token() }}",
-              q: params.term, // search term
-            };
-          },
-          dataType: 'json',
-          delay: 250,          
-          processResults: function (data) {
-            console.log(data);
-            return {
-              results:  $.map(data, function (item) {
-                    return {
-                        text: item.text,
-                        id: item.id
-                    }
-                })
-            };
-          },
-          cache: true
-        }
-      });
+      data: function (params) {
+        return {
+          "_token": "{{ csrf_token() }}",
+          q: params.term, // search term
+        };
+      },
+      dataType: 'json',
+      delay: 250,          
+      processResults: function (data) {
+        console.log(data);
+        return {
+          results:  $.map(data, function (item) {
+                return {
+                    text: item.text,
+                    id: item.id
+                }
+            })
+        };
+      },
+      cache: true
+    }
+  });
       
 
     $('input[name="dates"]').daterangepicker({
