@@ -68,13 +68,16 @@ function loadData() {
     indata = data;
     $.get("/acc/transactions/report/" + year + "/out", function (data) {
       outdata = data;
-      loadGraph(indata,outdata);
+      $.get("/acc/transactions/report/" + year + "/asset", function (data) {
+        assetdata = data;
+        loadGraph(indata,outdata, assetdata);
+      })
     });
   });
 }
 
 
-function loadGraph(indata,outdata) {
+function loadGraph(indata,outdata, assetdata) {
   
     barData.datasets[1].data = [0,0,0,0,0,0,0,0,0,0,0,0];
     barData.datasets[0].data = [0,0,0,0,0,0,0,0,0,0,0,0];
@@ -86,6 +89,7 @@ function loadGraph(indata,outdata) {
 
     totalIn = 0;
     totalOut = 0;
+    totalAsset = 0;
     totalProfit = 0;
    for (let index = 0; index < indata.length; index++) {
      const element = indata[index];
@@ -101,6 +105,11 @@ function loadGraph(indata,outdata) {
     totalOut = totalOut + element.count/100000;
   }
 
+  for (let index = 0; index < assetdata.length; index++) {
+    const element = assetdata[index];    
+    totalAsset = totalAsset + element.count/100000;
+  }
+
   dataProfit = dataIn.map(function(item, index) {
     // In this case item correspond to currentValue of array a, 
     // using index to get value from array b
@@ -109,13 +118,13 @@ function loadGraph(indata,outdata) {
 
   totalProfit = totalIn - totalOut;
 
-  barData.datasets[2].data = dataProfit;
-  
+  barData.datasets[2].data = dataProfit;  
+
   window.myBar.update();
 
   document.getElementById("inlahk").innerHTML = "Total Income<br/>" + totalIn.toFixed(2) + " lakh";
   document.getElementById("outlahk").innerHTML = "Total Expense<br/>" + totalOut.toFixed(2) + " lakh";
   document.getElementById("profitlahk").innerHTML = "Total Profit<br/>" + totalProfit.toFixed(2) + " lakh";
-  
+  document.getElementById("assetlahk").innerHTML = "Total Asset<br/>" + totalAsset.toFixed(2) + " lakh"; 
 
 }

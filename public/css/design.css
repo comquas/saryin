@@ -14,6 +14,10 @@
     color:red;
 }
 
+.asset {
+    color: blue;
+}
+
 .navbar.default-layout .navbar-brand-wrapper .navbar-brand img {
     height: auto !important;
     width: 65px !important;

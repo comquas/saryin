@@ -107,7 +107,8 @@ class TransactionController extends Controller
         $transactions = $transactions->orderBy($orderBy,$orderType);
 
         $inAmount = (clone $transactions)->where("type",1)->sum("amount");
-        $outAmount = (clone $transactions)->where("type","!=",1)->sum("amount");
+        $outAmount = (clone $transactions)->where("type",2)->sum("amount");
+        $assetAmount = (clone $transactions)->where("type",3)->sum("amount");
         $diffAmount = $inAmount - $outAmount;
 
         
@@ -116,7 +117,7 @@ class TransactionController extends Controller
 
         // dd($transactions);
         return view('admin.transactions.list',compact('title','transactions',
-        'pageno','orderBy','orderType','dates','type','inAmount','outAmount','diffAmount','query'));
+        'pageno','orderBy','orderType','dates','type','inAmount','outAmount', 'assetAmount', 'diffAmount','query'));
     }
 
 

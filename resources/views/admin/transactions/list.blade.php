@@ -81,6 +81,10 @@
 @section('content-data')
 <div class="d-flex flex-column flex-lg-row">
   <div class="wrapper pr-5">
+      <h5 class="mb-0">Asset</h5>
+      <small class="asset">{{number_format($assetAmount,0)}}</small>
+  </div>
+  <div class="wrapper pr-5">
       <h5 class="mb-0">Income</h5>
       <small class="income">{{number_format($inAmount,0)}}</small>
   </div>
@@ -91,7 +95,7 @@
   <div class="wrapper pr-5">
       <h5 class="mb-0">Real Amount</h5>
       <small>{{number_format($diffAmount,0)}}</small>
-  </div>
+  </div>  
 </div>
 <table class="table">
         <thead>
@@ -163,33 +167,32 @@
 <script>
   $(document).ready(function() {
     
-  $('#category').select2({     
-    minimumInputLength: 3,       
-    ajax: {
-      url: 'category/search/category',
+    $('#category').select2({     
+      minimumInputLength: 3,       
+      ajax: {
+        url: 'category/search/category',
 
-      data: function (params) {
-        return {
-          "_token": "{{ csrf_token() }}",
-          q: params.term, // search term
-        };
-      },
-      dataType: 'json',
-      delay: 250,          
-      processResults: function (data) {
-        console.log(data);
-        return {
-          results:  $.map(data, function (item) {
-                return {
-                    text: item.text,
-                    id: item.id
-                }
-            })
-        };
-      },
-      cache: true
-    }
-  });
+        data: function (params) {
+          return {
+            "_token": "{{ csrf_token() }}",
+            q: params.term, // search term
+          };
+        },
+        dataType: 'json',
+        delay: 250,          
+        processResults: function (data) {
+          return {
+            results:  $.map(data, function (item) {
+                  return {
+                      text: item.text,
+                      id: item.id
+                  }
+              })
+          };
+        },
+        cache: true
+      }
+    });
       
 
     $('input[name="dates"]').daterangepicker({

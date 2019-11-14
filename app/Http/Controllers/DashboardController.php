@@ -15,8 +15,12 @@ class DashboardController extends Controller
         if($type== "in") {
             $transaction->where("type",1);
         }
-        else {
-            $transaction->where("type","!=",1);
+        elseif($type== "out") {
+            $transaction->where("type",2);
+        }
+
+        elseif($type== "asset") {
+            $transaction->where("type",3);
         }
 
         $transaction->whereYear("date",$year);
@@ -38,6 +42,8 @@ class DashboardController extends Controller
             $sumOfSingleCategory = Transaction::where('categoryID', $id)
             ->whereMonth('date', now()->month)
             ->sum('amount');
+
+            $sumOfSingleCategory = $sumOfSingleCategory/100000;
             array_push($sum, $sumOfSingleCategory);                        
         }
 

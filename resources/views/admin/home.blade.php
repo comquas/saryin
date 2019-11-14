@@ -9,11 +9,13 @@
             <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-4" id="inlahk">
+                            <div class="col-md-3" id="inlahk">
                             </div>
-                            <div class="col-md-4" id="outlahk">
+                            <div class="col-md-3" id="outlahk">
                             </div>
-                            <div class="col-md-4" id="profitlahk">
+                            <div class="col-md-3" id="profitlahk">
+                            </div>
+                            <div class="col-md-3" id="assetlahk">
                             </div>
                             
                         </div>
@@ -51,7 +53,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <h4 class="card-title mb-0">Montly Expend Report</h4>
-                    <canvas class="mt-5 chartjs-render-monitor" height="200" id="expendpiechart"></canvas>
+                    <canvas class="mt-5 chartjs-render-monitor" height="250" id="expendpiechart"></canvas>
                 </div>
             <div class="col-md-6"></div>                
             </div>         
