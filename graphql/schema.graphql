@@ -50,6 +50,15 @@ extend type Mutation @middleware(checks: ["auth:api"]) {
     name:String!
     type: CategoryType!
   ): Category! @create
+  createTransaction(
+    name: String!
+    description: String!
+    attachment: String!
+    currency: String!
+    amount: String!
+    date: String!
+    categoryID: Int!
+    ): Transaction! @create
 }
 
 type PageInfo {
