@@ -227,8 +227,7 @@ class TransactionController extends Controller
         }
         
         if(Auth::user()->role == 1) {
-            
-            Transaction::create($data);
+            Auth::user()->transactions()->create($data);
         }
 
         return redirect()->route('transactions.index');

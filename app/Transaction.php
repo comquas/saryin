@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    protected $fillable = ["name","description","attachment","currency","amount","categoryID","customerID","type","date"];
+    protected $fillable = ["name","description","attachment","currency","amount","categoryID","customerID","type","date","userID"];
  
     public function category()
     {
@@ -16,5 +16,10 @@ class Transaction extends Model
     public function customer()
     {
         return $this->hasOne('App\Customer','id','customerID');
+    }
+
+    public function user()
+    {
+        return $this->hasOne('App\User','id','userID');
     }
 }

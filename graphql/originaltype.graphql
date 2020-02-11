@@ -34,4 +34,5 @@ type Transaction {
     amount: String!
     date: String
     category: Category @belongsTo
+    user: User @belongsTo
 }

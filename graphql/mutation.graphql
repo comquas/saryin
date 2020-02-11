@@ -25,7 +25,7 @@ extend type Mutation @middleware(checks: ["auth:api"]) {
     amount: String!
     date: String!
     categoryID: Int!
-    ): Transaction! @create
+    ): Transaction! @create @inject(context: "user.id", name: "userID")
 
     transactionUpdate(
       id: ID!
@@ -36,5 +36,5 @@ extend type Mutation @middleware(checks: ["auth:api"]) {
       amount: String!
       date: String!
       categoryID: Int!
-    ): Transaction! @update
+    ): Transaction! @update @inject(context: "user.id", name: "userID")
 }

@@ -14,13 +14,21 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
+
+        
         $title = 'Categories';
         $pageno = $request->page;
         if($pageno == null) {
             $pageno = 1;
         }
-        $categories = Category::orderBy('name')->paginate(20);
-        return view('admin.category.list',compact('title','categories','pageno'));
+        $categories = Category::orderBy('name');
+        $type = "";
+        if($request->type != null && $request->type != "0") {
+            $type = $request->type;
+            $categories = $categories->where("type",$type);
+        }
+        $categories = $categories->paginate(20);
+        return view('admin.category.list',compact('title','categories','pageno','type'));
     }
 
     /**
