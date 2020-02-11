@@ -22,6 +22,7 @@ class TransactionQuery
 
     public function searchTransaction($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
+        
         $query= $args["q"];
         $dateRange = "";
         $first = $args["first"];

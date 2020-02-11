@@ -1,65 +1,5 @@
-"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-01-01 13:00:00`."
-scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
-
-"A date string with format `Y-m-d`, e.g. `2011-05-23`."
-scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
-
-type User {
-  id: ID!
-  name: String!
-  email: String!
-  role: Int!
-}
-
-enum CategoryType {
-  INCOME @enum(value: 1)
-  EXPENSE @enum(value: 2)
-  ASSETS @enum(value: 3)
-}
-
-type Category {
-    id: ID!
-    name: String!
-    type: CategoryType!
-    transactions: [Transaction!] @hasMany
-}
-
-
-type Transaction {
-    id: ID!
-    name: String!
-    description: String
-    attachment: String!
-    currency: String!
-    amount: String!
-    date: String
-    category: Category @belongsTo
-
-}
-
-
-type Mutation {
-  login(
-    email: String! 
-    password: String!
-  ): String @field(resolver: "App\\GraphQL\\Mutations\\AccountMutator@resolve")
-}
-
-extend type Mutation @middleware(checks: ["auth:api"]) {
-  createCategory(
-    name:String!
-    type: CategoryType!
-  ): Category! @create
-  createTransaction(
-    name: String!
-    description: String!
-    attachment: String!
-    currency: String!
-    amount: String!
-    date: String!
-    categoryID: Int!
-    ): Transaction! @create
-}
+#import originaltype.graphql
+#import mutation.graphql
 
 type PageInfo {
   currentPage: Int
@@ -71,29 +11,18 @@ type TransactionsPageInfo {
   page: PageInfo
 }
 
+
 type Query @middleware(checks: ["auth:api"]) {
   me: User @auth
   categories: [Category!] @all 
+  categoriesByPage: [Category!] @paginate
+
   categoriesWithType(type: CategoryType! @eq): [Category!] @all 
   category(id: ID @eq): Category @find
-  transactions(first: Int,page: Int,dateRange: String= ""): TransactionsPageInfo @field(resolver: "TransactionQuery@showAll")
+
+  transactions(first: Int = 20,page: Int = 1,dateRange: String= ""): TransactionsPageInfo @field(resolver: "TransactionQuery@showAll")
   transaction(id: ID @eq): Transaction @find
   transactionsByCategory(categoryID: ID,first: Int,page: Int,dateRange: String= ""): TransactionsPageInfo @field(resolver: "TransactionQuery@categoryData")
   transactionSearch(q: String!, first: Int,page: Int,dateRange: String=""): TransactionsPageInfo @field(resolver: "TransactionQuery@searchTransaction")
-}
-
-
-
-
-# type Query  @group(namespace: "App\\Http\\GraphQL\\Queries") {
-#   users(where: _ @whereConditions(columns:["id","name"])): [User!]! @all
-#   user(id: ID @eq): User @find
-#   transactions: [Transaction!]! @paginate
   
-#   lastTransaction: Transaction!
-# }
-
-# extend type Query @group(middleware: ["jwt.auth", "cors"]) {
-#   me: User @auth
-#   categories: [Category!] @all
-# }
+}

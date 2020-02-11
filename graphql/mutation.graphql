@@ -1,0 +1,40 @@
+type Mutation {
+  login(
+    email: String! 
+    password: String!
+  ): String @field(resolver: "App\\GraphQL\\Mutations\\AccountMutator@resolve")
+}
+
+extend type Mutation @middleware(checks: ["auth:api"]) {
+  createCategory(
+    name:String!
+    type: CategoryType!
+  ): Category! @create
+
+  updateCategory(
+    id: ID!
+    name:String!
+    type: CategoryType!
+  ): Category! @update
+
+  createTransaction(
+    name: String!
+    description: String!
+    attachment: String!
+    currency: String!
+    amount: String!
+    date: String!
+    categoryID: Int!
+    ): Transaction! @create
+
+    transactionUpdate(
+      id: ID!
+      name: String!
+      description: String!
+      attachment: String!
+      currency: String!
+      amount: String!
+      date: String!
+      categoryID: Int!
+    ): Transaction! @update
+}
