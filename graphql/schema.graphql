@@ -74,10 +74,12 @@ type TransactionsPageInfo {
 type Query @middleware(checks: ["auth:api"]) {
   me: User @auth
   categories: [Category!] @all 
+  categoriesWithType(type: CategoryType! @eq): [Category!] @all 
   category(id: ID @eq): Category @find
-  transactions(first: Int,page: Int): TransactionsPageInfo @field(resolver: "TransactionQuery@showAll")
+  transactions(first: Int,page: Int,dateRange: String= ""): TransactionsPageInfo @field(resolver: "TransactionQuery@showAll")
   transaction(id: ID @eq): Transaction @find
-  transactionsByCategory(categoryID: ID,first: Int,page: Int): TransactionsPageInfo @field(resolver: "TransactionQuery@categoryData")
+  transactionsByCategory(categoryID: ID,first: Int,page: Int,dateRange: String= ""): TransactionsPageInfo @field(resolver: "TransactionQuery@categoryData")
+  transactionSearch(q: String!, first: Int,page: Int,dateRange: String=""): TransactionsPageInfo @field(resolver: "TransactionQuery@searchTransaction")
 }
 
 
