@@ -26,7 +26,7 @@ $catType = [
           <input class="btn btn-primary" type="submit" value="Submit">
         </div>
         <div class="col-sm-3">
-          <a class="btn btn-primary" href="#">
+        <a class="btn btn-primary" href="{{route('categories.create')}}">
             <span class="mdi mdi-plus" aria-hidden="true">&nbsp;</span>
             Add
           </a>
