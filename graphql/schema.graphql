@@ -11,10 +11,9 @@ type TransactionsPageInfo {
   page: PageInfo
 }
 
-
 type Query @middleware(checks: ["auth:api"]) {
   me: User @auth
-  categories: [Category!] @all 
+  categories: [Category] @all 
   categoriesByPage: [Category!] @paginate
 
   categoriesWithType(type: CategoryType! @eq): [Category!] @all 
@@ -26,3 +25,4 @@ type Query @middleware(checks: ["auth:api"]) {
   transactionSearch(q: String!, first: Int,page: Int,dateRange: String=""): TransactionsPageInfo @field(resolver: "TransactionQuery@searchTransaction")
   
 }
+

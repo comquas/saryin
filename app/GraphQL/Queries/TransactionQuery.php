@@ -8,6 +8,7 @@ use App\Transaction;
 class TransactionQuery
 {
     public function showAll($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo) {
+        
         $first = $args["first"];
         $page = $args["page"];
         $transactions = Transaction::orderBy("date","DESC");
