@@ -24,7 +24,7 @@ class AccountMutator
     {
         // TODO implement the resolver
         $credentials = Arr::only($args, ['email', 'password']);
-
+        
         if (! $token = auth('api')->attempt($credentials)) {
             return null;
         }
