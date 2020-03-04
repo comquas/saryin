@@ -18,7 +18,7 @@ class CreateDailyTrigger extends Migration
 BEGIN
 	DECLARE rowCount INT;
  
-	SET rowCount = (SELECT count(*) FROM report_dailies WHERE Date(date) = Date(NEW.date) and type = new.type);
+	SET rowCount = (SELECT count(*) FROM report_dailies WHERE date = Date(NEW.date) and type = new.type);
 	IF rowCount = 0 THEN
 		Insert into report_dailies(date,`amount`,type) values (Date(new.date),new.amount,new.type);
 	ELSE

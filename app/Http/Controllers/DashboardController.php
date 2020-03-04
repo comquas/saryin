@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaction;
+use App\ReportMonthly;
 use App\Category;
 use Carbon\Carbon;
 use DB;
 class DashboardController extends Controller
 {
     public function groupByMonth($year,$type) {
-        $transaction = Transaction::select(DB::raw("(SUM(amount)) as count"),DB::raw("(Month(date)) as month"),DB::raw("(Year(date)) as year"));
         
+        $transaction = ReportMonthly::select(DB::raw("amount as count"),"month","year");
         if($type== "in") {
             $transaction->where("type",1);
         }
@@ -23,9 +24,10 @@ class DashboardController extends Controller
             $transaction->where("type",3);
         }
 
-        $transaction->whereYear("date",$year);
+        $transaction->where("year",$year);
 
-        $result = $transaction->groupBy(DB::raw("Year(date)"),DB::raw("Month(date)"))->get();
+        $result = $transaction->get();
+        
         return $result;
     }
 
