@@ -23,7 +23,7 @@
                  <td>{{$customer->company}}</td>
                  <td>{{$customer->email}}</td>
                  <td> 
-                  <form class="form-inline" action="{{route('customers.destroy',['id'=>$customer->id])}}" method="POST">
+                  <form class="form-inline" action="{{route('customers.destroy',['customer'=>$customer->id])}}" method="POST">
                     <a href="{{route('customers.edit',['id'=>$customer->id])}}" class="btn btn-info"><i class="mdi mdi-pencil"></i> </a> &nbsp;
                     @csrf
                     @method('DELETE')
