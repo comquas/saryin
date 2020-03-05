@@ -24,7 +24,7 @@
                  <td>{{$customer->email}}</td>
                  <td> 
                   <form class="form-inline" action="{{route('customers.destroy',['customer'=>$customer->id])}}" method="POST">
-                    <a href="{{route('customers.edit',['id'=>$customer->id])}}" class="btn btn-info"><i class="mdi mdi-pencil"></i> </a> &nbsp;
+                    <a href="{{route('customers.edit',['customer'=>$customer->id])}}" class="btn btn-info"><i class="mdi mdi-pencil"></i> </a> &nbsp;
                     @csrf
                     @method('DELETE')
                         <button class="btn btn-danger" type="submit"><i class="mdi mdi-delete"></i></button>
