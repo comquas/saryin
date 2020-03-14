@@ -5,6 +5,8 @@ namespace App\GraphQL\Queries;
 use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 use App\Transaction;
+use App\ReportMonthly;
+use DB;
 class TransactionQuery
 {
     public function showAll($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo) {
@@ -21,6 +23,41 @@ class TransactionQuery
         return $this->showTransactionPageData($transactions,$dateRange,$first,$page);
     }
 
+    public function dashboardInfo($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    {
+        $totalIncome = 0;
+        $totalExpense = 0;
+        $totalAsset = 0;
+        $profit = 0;
+
+        $trans = ReportMonthly::select(DB::raw("sum('amount') as amount"),"type")
+        ->where("month",DB::raw("Month(Now())"))
+        ->where("year",DB::raw("Year(Now())"))
+        ->groupBy("type")->get();
+
+        
+        foreach($trans as $transaction) {
+            
+            if($transaction->type == 1) {
+                $totalIncome = $transaction->amount;
+            }
+            else if($transaction->type == 2) {
+                $totalExpense = $transaction->amount;
+            }
+            else if($transaction->type == 3) {
+                $totalAsset = $transaction->amount;
+            }
+        }
+        $profit = $totalIncome - ($totalExpense + $totalAsset);
+
+        
+        return [
+            "totalIncome" => $totalIncome,
+            "totalExpense" => $totalExpense,
+            "totalAsset" => $totalAsset,
+            "profit" => $profit
+        ];
+    }
     public function searchTransaction($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
         

@@ -11,8 +11,16 @@ type TransactionsPageInfo {
   page: PageInfo
 }
 
+type DashboardInfo {
+  totalIncome: Float
+  totalExpense: Float
+  totalAsset: Float
+  profit: Float
+}
+
 type Query @middleware(checks: ["auth:api"]) {
   me: User @auth
+  dashboardData: DashboardInfo! @field(resolver: "TransactionQuery@dashboardInfo")
   categories: [Category] @all 
   categoriesByPage: [Category!] @paginate
 
