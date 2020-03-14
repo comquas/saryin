@@ -12,12 +12,13 @@
         "doctrine/dbal": "^2.9",
         "facade/ignition": "^2.0",
         "fideloper/proxy": "^4.0",
+        "laravel/airlock": "^1.0",
         "laravel/framework": "^7.0",
+        "laravel/telescope": "^3.1",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "mll-lab/graphql-php-scalars": "^2.1",
-        "nuwave/lighthouse": "^4.8",
-        "tymon/jwt-auth": "^1.0"
+        "nuwave/lighthouse": "^4.8"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

@@ -18,7 +18,7 @@ type DashboardInfo {
   profit: Float
 }
 
-type Query @middleware(checks: ["auth:api"]) {
+type Query @middleware(checks: ["auth:airlock"]) {
   me: User @auth
   dashboardData: DashboardInfo! @field(resolver: "TransactionQuery@dashboardInfo")
   categories: [Category] @all 
